@@ -10,9 +10,7 @@ function App() {
   
   useEffect(() => {
     let userAgent = window.navigator.userAgent;
-    const isMobile =
-      /iphone|ipad|ipod|android|webos|blackberry|windows phone/.test(userAgent);
-    if (isMobile) {
+    if (userAgent.includes('Mobile')) {
       setIsBrowser(false);
     } else {
       setIsBrowser(true);
@@ -26,7 +24,7 @@ function App() {
 
   const handleNagigate = (deviceType: string) => {
     if(!isBrowser) {
-      deviceType === "ANDROID" ?   window.location.href="https://your-android-url"  :  window.location.href="https://your-ios-url" 
+      deviceType === "ANDROID" ?   window.open("https://your-android-url")  :  window.open("https://apps.apple.com/vn/app/tiki-shopping-fast-shipping/id958100553")
     }else{
       setIsPopupVisible(true);
       deviceType === "ANDROID" ?   setSelectedDevice('ANDROID') :  setSelectedDevice('IOS')
@@ -43,7 +41,7 @@ function App() {
         </button>
         <h2>Scan QR Code for {selectedDevice === "android" ? "Android" : "iOS"}</h2>
         <QRCode
-          value={selectedDevice === "ANDROID" ? "https://your-android-url" : "https://your-ios-url"}
+          value={selectedDevice === "ANDROID" ? "https://your-android-url" : "https://apps.apple.com/vn/app/tiki-shopping-fast-shipping/id958100553"}
           size={200}
           fgColor="#000000"
           bgColor="#ffffff"
@@ -208,11 +206,13 @@ function App() {
               src="./ios.png"
               className="left-item-buttons--image"
               alt="iOS"
+              onClick={() => handleNagigate('IOS')}
             />
             <img
               src="./android.png"
               className="left-item-buttons--image"
               alt="Android"
+              onClick={() => handleNagigate('ANDROID')}
             />
           </div>
         </div>

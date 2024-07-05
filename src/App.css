@@ -312,6 +312,14 @@
   border-radius: 8px;
 }
 
+.app-button--mobile {
+  position: relative;
+  background-color: #ffffff;
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (min-width: 1280px) and (max-width: 1440px) {
   .container,
   .social-links {
@@ -353,14 +361,6 @@
   }
 }
 
-.app-button--mobile {
-  position: relative;
-  background-color: #ffffff;
-  visibility: hidden;
-  justify-content: center;
-  align-items: center;
-}
-
 .social-links--mobile {
   display: none;
   width: 100%;
@@ -369,7 +369,7 @@
 }
 .social-links--mobile--item {
   gap: 24px;
-  padding: 16px;
+  padding: 0 16px 16px 16px;
   display: flex;
   justify-content: center;
 }
@@ -499,7 +499,6 @@
     display: none;
   }
   .app-button--mobile {
-    visibility: visible;
     display: flex;
   }
   .app-button--mobile .left-item-buttons {
