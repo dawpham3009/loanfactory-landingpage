@@ -158,7 +158,7 @@ function App() {
                 alt="LinkedIn"
               />
             </div>
-            <p>
+            <p className="copyright-item--mobile">
               Copyright © 2024 Loan Factory.
               <br />
               All Rights Reserved.
@@ -195,7 +195,6 @@ function App() {
               <a href="# ">LinkedIn</a>
             </div>
           </div>
-          <div className="divider"></div>
           <p className="copyright-item">
             Copyright © 2024 Loan Factory. All Rights Reserved.
           </p>
