@@ -39,7 +39,7 @@ function App() {
         <button className="close-btn" onClick={closePopup}>
           X
         </button>
-        <h2>Scan QR Code for {selectedDevice === "android" ? "Android" : "iOS"}</h2>
+        <h2 className="popup-title">Scan QR Code for {selectedDevice === "android" ? "Android" : "iOS"}</h2>
         <QRCode
           value={selectedDevice === "ANDROID" ? "https://your-android-url" : "https://apps.apple.com/vn/app/tiki-shopping-fast-shipping/id958100553"}
           size={200}

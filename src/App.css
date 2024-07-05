@@ -72,7 +72,7 @@
 }
 
 .logo {
-  width: 182px;
+  width: 250px;
   height: auto;
   cursor: pointer;
 }
@@ -172,7 +172,7 @@
   right: 10%;
   aspect-ratio: 2/3;
   transform: translateY(5%);
-  animation: slideUpPhone2 2s ease-in-out forwards;
+  animation: slideUpPhone2 1.5s ease-in-out forwards;
 }
 
 .right-buble-1 {
@@ -289,6 +289,11 @@
   width: 300px;
 }
 
+.popup-title {
+  font-family: medium;
+  font-size: 24px;
+}
+
 .close-btn {
   position: absolute;
   top: -10px;
@@ -300,7 +305,7 @@
   color: #ffffff;
   width: 30px;
   height: 30px;
-  background: linear-gradient(180deg, #ff6106 0%, #f3742b 28%, #fff2e7 100%);
+  background: linear-gradient(114.7deg, #741307 30.5%, #f37026 81%);
   border-radius: 4px;
 }
 
@@ -564,7 +569,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 80px; /* Để tránh trùng với .header */
+    padding-top: 80px; /* Để tránh trùng với .header */
     margin-bottom: 60px;
     overflow-y: scroll;
   }
@@ -657,7 +662,7 @@
 
 @keyframes slideUpPhone1 {
   from {
-    opacity: 0;
+    opacity: 0.5;
     transform: translateY(-180%);
   }
   to {
@@ -668,7 +673,7 @@
 }
 @keyframes slideUpPhone2 {
   from {
-    opacity: 0;
+    opacity: 0.5;
     transform: translateY(-180%);
   }
   to {
