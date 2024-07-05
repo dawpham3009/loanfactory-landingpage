@@ -163,6 +163,7 @@
   z-index: 2;
   aspect-ratio: 2/3;
   transform: translateX(18%);
+  animation: slideUpPhone1 1s ease-in-out forwards;
 }
 .phone-2 {
   position: relative;
@@ -171,6 +172,7 @@
   right: 10%;
   aspect-ratio: 2/3;
   transform: translateY(5%);
+  animation: slideUpPhone2 2s ease-in-out forwards;
 }
 
 .right-buble-1 {
@@ -632,5 +634,27 @@
   }
   50% {
     transform: translateY(-20px);
+  }
+}
+
+@keyframes slideUpPhone1 {
+  from {
+    opacity: 0;
+    transform: translateY(-180%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    transform: translateX(18%);
+  }
+}
+@keyframes slideUpPhone2 {
+  from {
+    opacity: 0;
+    transform: translateY(-180%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(5%);
   }
 }
