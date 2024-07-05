@@ -541,7 +541,7 @@
   }
   .header {
     justify-content: center;
-    background: #ffffff4d;
+    background: #ffffff3c;
     position: fixed;
     top: 0;
     left: 0;
@@ -564,8 +564,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 80px; /* Để tránh trùng với .header */
-    margin-bottom: 80px;
+    margin-top: 85px; /* Để tránh trùng với .header */
+    margin-bottom: 85px;
     overflow-y: scroll;
   }
 
@@ -591,7 +591,7 @@
 
   .right {
     position: relative;
-    aspect-ratio: 1/1;
+    aspect-ratio: 4/3.5;
     width: 100%;
     display: flex;
   }
