@@ -319,11 +319,6 @@
   .left-item .left-item--heading {
     margin-top: 50px;
   }
-  .left-item-buttons--image {
-    width: 100px;
-    height: auto;
-    cursor: pointer;
-  }
   .right {
     transform: translateY(-15%);
     transform: translateX(15%);
@@ -357,13 +352,9 @@
 }
 
 .app-button--mobile {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  position: relative;
   background-color: #ffffff;
   visibility: hidden;
-  padding: 16px;
   justify-content: center;
   align-items: center;
 }
@@ -391,11 +382,7 @@
   .left-item .left-item--heading {
     margin-top: 50px;
   }
-  .left-item-buttons--image {
-    width: 100px;
-    height: auto;
-    cursor: pointer;
-  }
+
   .phone-1 {
     position: relative;
     height: 450px;
@@ -458,8 +445,8 @@
 
   .main {
     flex-direction: column;
-    justify-content: normal;
-    align-items: normal;
+    justify-content: center;
+    align-items: center;
     flex: 1;
   }
 
@@ -469,7 +456,7 @@
   }
 
   .main .left h1 {
-    font-size: 24px;
+    font-size: 32px;
     text-align: center;
     margin: 16px;
   }
@@ -479,7 +466,7 @@
   }
 
   .left .highlight-title {
-    font-size: 24px;
+    font-size: 32px;
     text-align: center;
   }
 
@@ -517,9 +504,13 @@
     margin-top: 0;
   }
   .app-button--mobile .left-item-buttons .left-item-buttons--image {
-    width: 120px;
-    height: 40px;
+    width: 160px;
+    height: 50px;
     cursor: pointer;
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
   }
   .social-links--mobile {
     display: block;
@@ -558,8 +549,8 @@
 
   .main {
     flex-direction: column;
-    justify-content: normal;
-    align-items: normal;
+    justify-content: center;
+    align-items: center;
     flex: 1;
   }
 
@@ -585,7 +576,7 @@
 
   .right {
     position: relative;
-    aspect-ratio: 16/9;
+    aspect-ratio: 4/3;
     width: 100%;
     margin-top: 20px;
     display: flex;
@@ -617,9 +608,13 @@
     margin-top: 0;
   }
   .app-button--mobile .left-item-buttons .left-item-buttons--image {
-    width: 120px;
+    width: 140px;
     height: 40px;
     cursor: pointer;
+  }
+  .footer {
+    display: flex;
+    justify-content: center;
   }
   .social-links--mobile {
     display: block;
