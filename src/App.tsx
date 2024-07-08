@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import { useEffect, useState } from "react";
 import QRCode from "qrcode.react";
 
@@ -47,20 +48,24 @@ function App() {
       {isPopupVisible && (
         <div className="popup">
           <div className="popup-content">
-            <button className="close-btn" onClick={closePopup}>
-              X
-            </button>
-            <h2 className="popup-title">
-              Scan QR Code for{" "}
-              {selectedDevice === "ANDROID" ? "Android" : "IOS"}
-            </h2>
+            <div className="popup-content-header">
+              <h2 className="popup-title">
+                Scan QR Code for{" "}
+                {selectedDevice === "ANDROID" ? "Android" : "IOS"}
+              </h2>
+              <img
+                src="./close.png"
+                className="close-icon"
+                onClick={closePopup}
+              />
+            </div>
             <QRCode
               value={
                 selectedDevice === "ANDROID"
                   ? "https://play.google.com/store/apps/details?id=com.loanfactory.consumers"
                   : "https://apps.apple.com/us/app/loan-factory/id6503113271"
               }
-              size={200}
+              size={300}
               fgColor="#000000"
               bgColor="#ffffff"
               level="L"
