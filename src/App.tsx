@@ -7,10 +7,13 @@ function App() {
   const [isBrowser, setIsBrowser] = useState<boolean>(true);
   const [isPopupVisible, setIsPopupVisible] = useState<boolean>(false);
   const [selectedDevice, setSelectedDevice] = useState<string | null>(null);
-  
+
   useEffect(() => {
-    let userAgent = window.navigator.userAgent;
-    if (userAgent.includes('Mobile')) {
+    const userAgent = window.navigator.userAgent;
+    const isIPad = /iPad|Macintosh/.test(userAgent) && "ontouchend" in document;
+    const isMobile = /Mobile|iP(hone|od)/.test(userAgent);
+
+    if (isMobile || isIPad) {
       setIsBrowser(false);
     } else {
       setIsBrowser(true);
@@ -23,34 +26,49 @@ function App() {
   };
 
   const handleNagigate = (deviceType: string) => {
-    if(!isBrowser) {
-      deviceType === "ANDROID" ?   window.open("https://your-android-url")  :  window.open("https://apps.apple.com/vn/app/tiki-shopping-fast-shipping/id958100553")
-    }else{
+    if (!isBrowser) {
+      deviceType === "ANDROID"
+        ? window.open(
+            "https://play.google.com/store/apps/details?id=com.loanfactory.consumers"
+          )
+        : window.open(
+            "https://apps.apple.com/us/app/loan-factory/id6503113271"
+          );
+    } else {
       setIsPopupVisible(true);
-      deviceType === "ANDROID" ?   setSelectedDevice('ANDROID') :  setSelectedDevice('IOS')
+      deviceType === "ANDROID"
+        ? setSelectedDevice("ANDROID")
+        : setSelectedDevice("IOS");
     }
-  }
+  };
 
   return (
     <div className="wrapper">
       {isPopupVisible && (
-      <div className="popup">
-      <div className="popup-content">
-        <button className="close-btn" onClick={closePopup}>
-          X
-        </button>
-        <h2 className="popup-title">Scan QR Code for {selectedDevice === "android" ? "Android" : "iOS"}</h2>
-        <QRCode
-          value={selectedDevice === "ANDROID" ? "https://your-android-url" : "https://apps.apple.com/vn/app/tiki-shopping-fast-shipping/id958100553"}
-          size={200}
-          fgColor="#000000"
-          bgColor="#ffffff"
-          level="L"
-          includeMargin={true}
-          className="qr-code"
-        />
-      </div>
-    </div>
+        <div className="popup">
+          <div className="popup-content">
+            <button className="close-btn" onClick={closePopup}>
+              X
+            </button>
+            <h2 className="popup-title">
+              Scan QR Code for{" "}
+              {selectedDevice === "ANDROID" ? "Android" : "IOS"}
+            </h2>
+            <QRCode
+              value={
+                selectedDevice === "ANDROID"
+                  ? "https://play.google.com/store/apps/details?id=com.loanfactory.consumers"
+                  : "https://apps.apple.com/us/app/loan-factory/id6503113271"
+              }
+              size={200}
+              fgColor="#000000"
+              bgColor="#ffffff"
+              level="L"
+              includeMargin={true}
+              className="qr-code"
+            />
+          </div>
+        </div>
       )}
       <div className="container">
         <div className="ellipse-overlay"></div>
@@ -97,7 +115,6 @@ function App() {
           <button
             className="sign-in"
             onClick={(e) => {
-              e.preventDefault();
               window.open("https://www.loanfactory.com/login", "_blank");
             }}
           >
@@ -121,13 +138,13 @@ function App() {
                   src="./ios.png"
                   className="left-item-buttons--image"
                   alt="iOS"
-                  onClick={() => handleNagigate('IOS')}
+                  onClick={() => handleNagigate("IOS")}
                 />
                 <img
                   src="./android.png"
                   className="left-item-buttons--image"
                   alt="Android"
-                  onClick={() => handleNagigate('ANDROID')}
+                  onClick={() => handleNagigate("ANDROID")}
                 />
               </div>
             </div>
@@ -150,12 +167,25 @@ function App() {
                 src="./fb.png"
                 style={{ width: 20, height: 20 }}
                 alt="Facebook"
+                onClick={() => {
+                  window.open("https://www.facebook.com/LoanFactoryHQ");
+                }}
               />
-              <img src="./x.png" style={{ width: 20, height: 20 }} alt="X" />
+              <img
+                src="./x.png"
+                style={{ width: 20, height: 20 }}
+                alt="X"
+                onClick={() => {
+                  window.open("https://x.com/LoanFactoryHQ");
+                }}
+              />
               <img
                 src="./linkedin.png"
                 style={{ width: 20, height: 20 }}
                 alt="LinkedIn"
+                onClick={() => {
+                  window.open("https://www.linkedin.com/company/loanfactory");
+                }}
               />
             </div>
             <p className="copyright-item--mobile">
@@ -170,7 +200,12 @@ function App() {
         <div className="social-links">
           <div className="social-links-item--breakpoint">
             <p className="social-links--heading">Follow us on:</p>
-            <div className="social-links--item">
+            <div
+              className="social-links--item"
+              onClick={() => {
+                window.open("https://www.facebook.com/LoanFactoryHQ");
+              }}
+            >
               <img
                 src="./fb.png"
                 style={{ width: 20, height: 20 }}
@@ -178,7 +213,12 @@ function App() {
               />
               <a href="# ">Facebook</a>
             </div>
-            <div className="social-links--item">
+            <div
+              className="social-links--item"
+              onClick={() => {
+                window.open("https://x.com/LoanFactoryHQ");
+              }}
+            >
               <img
                 src="./x.png"
                 style={{ width: 20, height: 20 }}
@@ -186,7 +226,12 @@ function App() {
               />
               <a href="# ">Twitter</a>
             </div>
-            <div className="social-links--item">
+            <div
+              className="social-links--item"
+              onClick={() => {
+                window.open("https://www.linkedin.com/company/loanfactory");
+              }}
+            >
               <img
                 src="./linkedin.png"
                 style={{ width: 20, height: 20 }}
@@ -205,13 +250,13 @@ function App() {
               src="./ios.png"
               className="left-item-buttons--image"
               alt="iOS"
-              onClick={() => handleNagigate('IOS')}
+              onClick={() => handleNagigate("IOS")}
             />
             <img
               src="./android.png"
               className="left-item-buttons--image"
               alt="Android"
-              onClick={() => handleNagigate('ANDROID')}
+              onClick={() => handleNagigate("ANDROID")}
             />
           </div>
         </div>
